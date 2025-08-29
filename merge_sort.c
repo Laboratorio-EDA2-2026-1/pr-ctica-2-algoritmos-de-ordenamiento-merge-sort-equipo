@@ -62,7 +62,10 @@ void mergeSort(int arr[], int left, int right) {
     if (left>=right){
         return;
     }
+    //separando el arreglo original dividiendo su tamño entre 2 para tener la posicion de enmedio
+    
     int mid=(left+right)/2;
+    
     mergeSort(arr, left, mid);
     mergeSort(arr, mid+1, right);
     merge(arr, left, mid, right); 
@@ -72,8 +75,11 @@ void mergeSort(int arr[], int left, int right) {
 void merge(int arr[], int left, int mid, int right) {
     int nL=mid-left+1;
     int nR=right-mid;
+    
+    //creacion de arreglos
     int *L=(int *)malloc(nL*sizeof(int));
     int *R=(int *)malloc(nR*sizeof(int));
+    
     for (int i=0;i<nL;i++){
         L[i]=arr[left+i];
     }
@@ -104,6 +110,17 @@ void merge(int arr[], int left, int mid, int right) {
         k=k+1;
     }
     return;
+    //liberar la memoria de los arreglos copia
     free(L);
     free(R);
 }
+
+/*
+    Equipo:
+    -. Silva Chugunov Sevastián
+    -. Salinas Ayala  Eduardo Yael
+    -. Pérez Ruiz Axel
+    -. Navarro Rodríguez Jorge Ariel
+*/
+    
+
